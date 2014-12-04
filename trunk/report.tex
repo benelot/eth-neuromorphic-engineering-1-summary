@@ -1,0 +1,256 @@
+%% (Master) Thesis template
+% Template version used: v1.4
+%
+% Largely adapted from Adrian Nievergelt's template for the ADPS
+% (lecture notes) project.
+
+
+%% We use the memoir class because it offers a many easy to use features.
+\documentclass[11pt,article,oneside,a4paper,titlepage]{memoir}
+
+%% Packages
+%% ========
+
+%% LaTeX Font encoding -- DO NOT CHANGE
+\usepackage[OT1]{fontenc}
+
+%% Babel provides support for languages.  'english' uses British
+%% English hyphenation and text snippets like "Figure" and
+%% "Theorem". Use the option 'ngerman' if your document is in German.
+%% Use 'american' for American English.  Note that if you change this,
+%% the next LaTeX run may show spurious errors.  Simply run it again.
+%% If they persist, remove the .aux file and try again.
+\usepackage[english]{babel}
+
+%% Input encoding 'utf8'. In some cases you might need 'utf8x' for
+%% extra symbols. Not all editors, especially on Windrows, are UTF-8
+%% capable, so you may want to use 'latin1' instead.
+\usepackage[utf8]{inputenc}
+
+%% This changes default fonts for both text and math mode to use Herman Zapfs
+%% excellent Palatino font.  Do not change this.
+\usepackage[sc]{mathpazo}
+
+%% The AMS-LaTeX extensions for mathematical typesetting.  Do not
+%% remove.
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+
+%% NTheorem is a reimplementation of the AMS Theorem package. This
+%% will allow us to typeset theorems like examples, proofs and
+%% similar.  Do not remove.
+%% NOTE: Must be loaded AFTER amsmath, or the \qed placement will
+%% break
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+%% LaTeX' own graphics handling
+\usepackage{graphicx}
+
+%% We unfortunately need this for the Rules chapter.  Remove it
+%% afterwards; or at least NEVER use its underlining features.
+\usepackage{soul}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{datetime}
+%% To use alternating colors in the glossary
+\usepackage[table]{xcolor}
+
+%% We use subfiles to separate the file into subfiles which are compilable on their own by copying the preamble from this file.
+\usepackage{subfiles}
+
+
+%% Some more packages that you may want to use.  Have a look at the
+%% file, and consult the package docs for each.
+\input{extrapackages}
+
+%% Our layout configuration.
+\input{layoutsetup}
+
+%% Theorem environments.  You will have to adapt this for a German
+%% thesis.
+\input{theoremsetup}
+
+%% Helpful macros.
+\input{macrosetup}
+
+%% Make document internal hyperlinks wherever possible. (TOC, references)
+%% This MUST be loaded after varioref, which is loaded in 'extrapackages'
+%% above.  We just load it last to be safe.
+\usepackage[linkcolor=black,colorlinks=true,citecolor=black,filecolor=black]{hyperref}
+
+%% Objects numbering
+\counterwithout{figure}{section}
+\counterwithout{equation}{section}
+
+
+%% Document information
+%% ====================
+
+
+\title{Neuromorphic Engineering 1 (NE1), Fall Semester 2014}
+\author{David Bontrager\\Joachim Ott\\
+        Dora Sumis\l awska\\Doris Ling\\Roland Schlatter\\Benjamin Ellenberger}
+\thesistype{Summary of the lectures 2012, 2013 \(\&\) 2014}
+\advisors{Professor:\\ Prof.\ Dr.\ Tobi Delbruck 
+	                    }
+\department{Institute of Neuroinformatics}
+\date{\today}
+
+%% Modified version of the voltmeter
+\makeatletter
+\def\pgf@circ@myvoltmeter@path#1{\pgf@circ@bipole@path{myvoltmeter}{#1}}
+\tikzset{myvoltmeter/.style = {\circuitikzbasekey, /tikz/to
+                               path=\pgf@circ@myvoltmeter@path}}
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/voltmeter/height}}{myvoltmeter}{\ctikzvalof{bipoles/voltmeter/height}}{\ctikzvalof{bipoles/voltmeter/width}}{
+    \def\pgf@circ@temp{right}
+    \ifx\tikz@res@label@pos\pgf@circ@temp
+        \pgf@circ@res@step=-1.2\pgf@circ@res@up
+    \else
+        \def\pgf@circ@temp{below}
+        \ifx\tikz@res@label@pos\pgf@circ@temp
+            \pgf@circ@res@step=-1.2\pgf@circ@res@up
+        \else
+            \pgf@circ@res@step=1.2\pgf@circ@res@up
+        \fi
+    \fi
+
+    \pgfpathmoveto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@zero}}       
+    \pgfpointorigin \pgf@circ@res@other =  \pgf@x  \advance \pgf@circ@res@other by -\pgf@circ@res@up
+    \pgfpathlineto{\pgfpoint{\pgf@circ@res@other}{\pgf@circ@res@zero}}
+    \pgfusepath{draw}
+
+    \pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+
+        \pgfscope
+            \pgfpathcircle{\pgfpointorigin}{.9\pgf@circ@res@up} % change this if you want to touch the wires
+            \pgfusepath{draw}       
+        \endpgfscope    
+
+    \pgfsetlinewidth{\pgfstartlinewidth}
+    \pgftransformrotate{90}
+    \pgfsetarrowsend{latex}
+    \pgfpathmoveto{\pgfpoint{\pgf@circ@res@other}{\pgf@circ@res@down}}
+    \pgfpathlineto{\pgfpoint{-\pgf@circ@res@other}{\pgf@circ@res@up}} % change this if you want to touch the wires
+    \pgfusepath{draw} % comment this if you don't need the diagonal arrow
+    \pgfsetarrowsend{}
+
+
+    \pgfpathmoveto{\pgfpoint{-\pgf@circ@res@other}{\pgf@circ@res@zero}}
+    \pgfpathlineto{\pgfpoint{\pgf@circ@res@right}{\pgf@circ@res@zero}}
+    \pgfusepath{draw} % comment this if you don't need the diagonal arrow
+
+    \pgfnode{circle}{center}{\textbf{V}}{}{}
+}
+\makeatother
+
+%% Modified version of ammeter
+\makeatletter
+\def\pgf@circ@myammeter@path#1{\pgf@circ@bipole@path{myammeter}{#1}}
+\tikzset{myammeter/.style = {\circuitikzbasekey, /tikz/to
+                               path=\pgf@circ@myammeter@path}}
+\pgfcircdeclarebipole{}{\ctikzvalof{bipoles/ammeter/height}}{myammeter}{\ctikzvalof{bipoles/ammeter/height}}{\ctikzvalof{bipoles/ammeter/width}}{
+    \def\pgf@circ@temp{right}
+    \ifx\tikz@res@label@pos\pgf@circ@temp
+        \pgf@circ@res@step=-1.2\pgf@circ@res@up
+    \else
+        \def\pgf@circ@temp{below}
+        \ifx\tikz@res@label@pos\pgf@circ@temp
+            \pgf@circ@res@step=-1.2\pgf@circ@res@up
+        \else
+            \pgf@circ@res@step=1.2\pgf@circ@res@up
+        \fi
+    \fi
+
+    \pgfpathmoveto{\pgfpoint{\pgf@circ@res@left}{\pgf@circ@res@zero}}       
+    \pgfpointorigin \pgf@circ@res@other =  \pgf@x  \advance \pgf@circ@res@other by -\pgf@circ@res@up
+    \pgfpathlineto{\pgfpoint{\pgf@circ@res@other}{\pgf@circ@res@zero}}
+    \pgfusepath{draw}
+
+    \pgfsetlinewidth{\pgfkeysvalueof{/tikz/circuitikz/bipoles/thickness}\pgfstartlinewidth}
+
+        \pgfscope
+            \pgfpathcircle{\pgfpointorigin}{.9\pgf@circ@res@up} % change this if you want to touch the wires
+            \pgfusepath{draw}       
+        \endpgfscope    
+
+    \pgfsetlinewidth{\pgfstartlinewidth}
+    \pgftransformrotate{90}
+    \pgfsetarrowsend{latex}
+    \pgfpathmoveto{\pgfpoint{\pgf@circ@res@other}{\pgf@circ@res@down}}
+    \pgfpathlineto{\pgfpoint{-\pgf@circ@res@other}{\pgf@circ@res@up}} % change this if you want to touch the wires
+    \pgfusepath{draw} % comment this if you don't need the diagonal arrow
+    \pgfsetarrowsend{}
+
+
+    \pgfpathmoveto{\pgfpoint{-\pgf@circ@res@other}{\pgf@circ@res@zero}}
+    \pgfpathlineto{\pgfpoint{\pgf@circ@res@right}{\pgf@circ@res@zero}}
+    \pgfusepath{draw} % comment this if you don't need the diagonal arrow
+
+    \pgfnode{circle}{center}{\textbf{A}}{}{}
+}
+\makeatother
+
+
+\begin{document}
+
+\frontmatter
+
+%% Title page is auto-generated from document information above.
+%% DO NOT CHANGE.
+\begin{titlingpage}
+  \calccentering{\unitlength}
+  \begin{adjustwidth*}{\unitlength-24pt}{-\unitlength-24pt}
+    \maketitle
+  \end{adjustwidth*}
+\end{titlingpage}
+
+\mainmatter
+
+%% This change is needed if the article option for the memoir document class
+%% is used, in order to count sections (article) as if they were chapters (memoir)
+\counterwithout{section}{chapter}
+
+
+
+%% Our content
+
+\newpage
+\clearpage
+\pagenumbering{roman}
+\tableofcontents
+
+
+
+\clearpage
+\pagenumbering{arabic}
+
+%%New section means new page
+\newcommand{\sectionbreak}{\clearpage}
+\subfile{01-introduction}
+\subfile{02-MOSFETS}
+\subfile{03-subthreshold}
+\subfile{04-superthreshold}
+\subfile{05-log-IV-converter}
+\subfile{06-current-source}
+\subfile{07-current-mirror}
+\subfile{08-source-follower}
+\subfile{09-differential-pair}
+\subfile{10-current-conveyor}
+\subfile{11-current-correlator}
+\subfile{12-bump-antibump-circuit}
+\subfile{13-transconductance-amp}
+\subfile{14-wide-range-transconductance-amp}
+\subfile{15-current-divider}
+\subfile{16-WTA}
+\subfile{17-photodiodes}
+\subfile{18-silicon-neurons}
+\subfile{19-important-values}
+\subfile{20-exam-questions}
+\subfile{21-lab-questions}
+\subfile{22-glossary}
+\subfile{23-TODO}
+\subfile{24-bibliography}
+
+
+
+\end{document}
+

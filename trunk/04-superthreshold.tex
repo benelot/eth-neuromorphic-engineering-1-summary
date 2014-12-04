@@ -1,0 +1,34 @@
+\documentclass[report]{subfiles}
+\begin{document}
+%-----------------------------------------------
+\section{Above threshold behavior}
+Above threshold we have a different phenomenon. We established that subthreshold current moves around because of diffusion - moving across concentration gradients. Once we get above threshold, the transistor goes into \emph{strong inversion} and the electric field from drain to source takes over and \emph{drift} is the primary motive force. Once you get the basics of chapters 2 and 3, the rest of the course is extrapolating and applying it. So really focus on learning the material in these two chapters - you will be expected to know it well and be able to use that knowledge on the fly during lab sessions.
+
+\subsection{On current equations, $\kappa$, and conductances}
+First off, $\kappa$. Once the transistor goes into strong inversion\footnote{This is where the gate voltage is high enough to attract minority carriers so their concentration in the channel is higher than the dopant concentration}, surface potential $\psi_s$ is pretty well coupled with gate potential, so we set $\kappa$ to 1\footnote{A little more technically: any change in $\psi_s$ is due to a change in inversion charge (mobile electron concentration), not depletion charge (fixed ions), and $\kappa$ is limited to describing static charges, being based on capacitances and all}. We will no longer have $\kappa$ in our equations, but another little guy - $\beta$ - gets introduced as a modified version of $I_0$. We are now above threshold, but we still have the ohmic/linear/triode regime and the saturation regime.\\ \\
+So current is now tumbling down the electric field between the source and drain, being pushed along by our old friend the electric field. This means the current will flow according to the rules that govern charges moving in a field, with the slight caveat that it happens inside matter, not in the ubiquitous vacuum we studied in undergrad. So what are the main points of these rules? Well, we have $I_{ds}$ as a product of carrier mobility, charge density, and electric field. When we expand the terms we get
+\begin{equation}
+I_{ds} = \mu C_{ox}\frac{W}{L}(V_{gs} - V_T)V_{ds} = \beta(V_{gs} - V_T)V_{ds}
+\label{abvTriodeEqn}
+\end{equation}
+where $V_T$ is the threshold voltage and $\mu$ is electron mobility (previously hidden inside $I_0$). And look at that! $I_{ds}$ has a linear dependence on both $V_{gs}$ and $V_{ds}$. No wonder they call it the \emph{linear} regime. So as long as you hold one of those two voltages constant and sweep the other, you can easily measure $\beta$ as the slope of the line divided by the voltage that is being held constant (either drain or gate). If you recall, when a transistor is subthreshold, it goes from triode to saturation regime at the same drain voltage ($4U_T$), regardless of gate voltage. Above threshold we don't get that. That saturation $V_{ds}$ now depends on $V_{gs}$ - for higher $V_{gs}$ you get a higher saturation voltage $V_{dsat}$\footnote{$V_{dsat} = V_{gs} - V_T$}.\\ \\
+Say we put $V_{ds}$ higher than $V_{dsat}$, so we're in the saturation regime of above threshold. The current equation changes to
+\begin{equation}
+I_{ds} = \frac{\beta}{2}(V_{gs} - V_T)^2
+\label{abvSatEqn}
+\end{equation}
+with the same $\beta$ as before. Remember this, you will likely get asked this at some point: \textsl{subthreshold current is an exponential function of voltage, but above threshold it's linear in the linear region and \emph{quadratic} in the saturation regime}. Also, try to remember \emph{which} voltages it's linear or quadratic or exponential with. Here if we plot the square root of the current against $V_{gs}$, the slope of the line is a nice, friendly $\sqrt{\beta/2}$. All of this is shown pretty clearly in the slides.\\ \\
+So, $\kappa$ has not completely disappeared. I know, I know, we said it's no longer relevant to the surface potential. That is true. Now, however, it has a hand in controlling the threshold voltage, along with $V_s$ as $V_T = V_{T0} + \frac{V_s}{\kappa}$. The class does not really spend much time on that, though.\\ \\
+%--------------------------------------------
+\subsection{Another word on current dependencies}
+The full above threshold equation, which contains all the information we need to derive both ~\eqref{abvTriodeEqn} and ~\eqref{abvSatEqn} is
+\begin{equation}
+I = \frac{\beta}{2}\big[((V_g - V_{T0}) - V_s)^2 - ((V_g - V_{T0}) - V_d)^2\big] \label{abvThreshEqn}
+\end{equation}
+which we can look at as the difference between forward (the half with $V_s$) and reverse (the half with $V_d$) currents. We have to do some algebra to get this in the form of ~\eqref{abvTriodeEqn}, but essentially the current is product of inversion charge in the channel (which is linear in $V_g - V_{T0}$) and the electric field across the channel (which is linear in $V_{ds}$).\\ \\
+In saturation, $V_d$ is high enough that any electron that gets near the drain is instantly sucked up into it, so that end of the channel actual goes subthreshold\footnote{This is the \textsl{pinchoff} region} because the concentration of mobile carriers is so low (they all get pulled into the drain by the electric field arising from the voltage between the channel and the drain, where they are whisked away to $V_{dd}$ and the greener pastures that await them there).\\ \\
+Overall, current is a proportional to inversion charge concentration  and the electric field\footnote{$I = J_{drift}Width_{channel}Depth_{channel} = \mu W Q_i \mathcal{E} \propto Q_i \frac{d}{dz}Q_i = \frac{d}{dz}Q_i^2$}. Integrating this relationship over the length of the channel gives $I \propto Q_i^2 = (Q_s^2 - Q_d^2)$\footnote{Inversion charge concentrations at source and drain ends of channel}. Saturation says $Q_d \to 0$ \footnote{Remember? all electrons that make it to that end immediately bugger off through the drain}, so current is only a function of $Q_s$ and we drop off the second half of ~\eqref{abvThreshEqn} to get ~\eqref{abvSatEqn}. \\ \\
+I found it very helpful to sit down with the equations and trace dependencies back to their roots\footnote{Letting you do this is where the book really earns its keep}. For example, you look at ~\eqref{abvThreshEqn} to see how current depends on voltages. You then look in the book and find that the voltages are functions of inversion charge. You look farther back to see what inversion charges are functions of, and so on. Without knowing what phenomena give rise to a given term, it's hard to build an intuition for any of this. But maybe that's just me.\\ \\
+I'll only mention conductances here to say that we calculate them the same way as before - differentiate your current in terms of whatever your relevant voltage is. And there you have it. Study your labs.
+%-----------------------------------------------
+\end{document}

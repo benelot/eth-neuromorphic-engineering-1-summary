@@ -1,0 +1,19 @@
+\documentclass[report]{subfiles}
+\begin{document}
+%-----------------------------------------------
+
+\section{Logarithmic I/V converter}
+%David
+We can call this a circuit, but this is simply what a transistor does in subthreshold - converts the log of the current to a voltage\footnote{Or vice versa - that's a current source}. We can think of the transistor as having three variable parameters: $V_g$, $V_s$, and $I_{ds}$\footnote{We ignore $V_d$ for now}. The circuit is just a single transistor where current into the drain is our input and the output is either the gate or source voltage. The equations are simply algebraic manipulations of the subthreshold saturation equation ~\eqref{subSatEqn}.
+\begin{equation}
+V_s = \kappa V_g - U_T \log \left(\frac{I}{I_0}\right)
+\end{equation}
+\begin{equation}
+V_g = \frac{1}{\kappa}\left( V_s + U_T \log \left(\frac{I}{I_0}\right) \right)
+\end{equation}
+In each case, you fix the voltage that is not being measured at a constant value. \emph{Important note:} due to the infinite impedance between gate and channel, $V_g$ (determined  - by definition - by charge on the gate) cannot be directly influenced by the input current. For this version to work, there must be feedback between the gate and the drain, which can be accomplished by shorting the two together (see Figure~\ref{diodeConn}). This is a \emph{diode-connected} transistor, called such because it functionally has only two terminals, like a diode.\\ \\
+Doing this has two effects. First, it ensures that the transistor stays in the saturation regime by maintaining a reverse bias betweeen drain and channel. Second, if we force a certain current through, this will set the drain voltage and then necessarily the gate voltage (because the two are shorted together). See? Positive feedback from drain to gate (and therefore negative feedback from gate to drain).
+%-----------------------------------------------
+
+
+\end{document}
