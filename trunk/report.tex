@@ -55,6 +55,11 @@
 \usepackage[table]{xcolor}
 \usepackage{longtable}
 
+%common
+\usepackage{comment}
+\usepackage{ifthen}
+\usepackage{todonotes}
+
 %% We use subfiles to separate the file into subfiles which are compilable on their own by copying the preamble from this file.
 \usepackage{subfiles}
 
@@ -226,6 +231,7 @@
 
 %%New section means new page
 \newcommand{\sectionbreak}{\clearpage}
+\todo{Improve layout (currently ugly at some points...)}
 \subfile{01-introduction}
 \subfile{02-MOSFETS}
 \subfile{03-subthreshold}
