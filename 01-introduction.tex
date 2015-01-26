@@ -2,20 +2,25 @@
 \begin{document}
 
 \section{Introduction}
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+% summarizes lecture 1
+% author: Benjamin Ellenberger & Joachim Ott
 
 \subsection{Semiconductors}
+In case you have trouble understanding the concepts of device physics, then please refer to the appended slide set on device physics in chapter \ref{sec:dev-physics}.
+
 %Ben Start
 Semiconductors and other materials are arranged in regular structures, so called crystals. The outermost electrons of the atoms, the valence electrons, are distributed in a way that defines and holds together the structure of the crystal.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{pics/crystal_structure.png}
-\caption{Crystal structure of important semiconductors. a) Possibilities of arrangement. b) Arrangement of silicon (Si) and Gallium arsenide (GaAs). Pure silicon crystalizes in a diamond crystal, Gallium arsenide crystalizes in a so called Zincblende structure.}
+\caption{Crystal structure of important semiconductors. a) Possibilities of arrangement. b) Arrangement of silicon (Si) and Gallium arsenide (GaAs). Pure silicon crystallizes in a diamond crystal, Gallium arsenide crystallizes in a so called Zincblende structure \cite{book:VLSI}.}
 \end{figure}
 
 \subsection{Energy Band Diagrams}
 We classify crystals and other solids according to their electrical conductivity into \textbf{insulators}, \textbf{semiconductors}, and \textbf{conductors or metals} in the order of increasing conductivity. Semiconductors are at an intermediate conductivity level, a special property making them suitable for transistors because their conductivity is tunable. It can be modulated by varying the electrical boundary conditions and by introducing atoms of foreign elements into the crystal structure (so called \textbf{impurity doping}).\\
-The conductivity of a solid is dependent on the amount of mobile electrons in the solid. Electrons can either be bound to an ion or can be mobile within the solid. Electrical currents are then carried by the motion of the mobile valence electrons. In order to be mobile, the electrons must acquire a minimum energy to break free. The electrons in solids can only be in certain ranges, so called \textbf{energy bands}, and must avoid the forbidden ranges, so called \textbf{energy gaps or bandgaps}.
+The conductivity of a solid is dependent on the amount of mobile electrons in the solid. Electrons can either be bound to an ion or can be mobile within the solid. Electrical currents are then carried by the motion of the mobile valence electrons. In order to be mobile, the electrons must acquire a minimum energy to break free. The electrons in solids can only be in certain ranges, so called \textbf{energy bands}, and must avoid the forbidden ranges, so called \textbf{energy gaps or band gaps}.
 
 \begin{figure}[H]
 \centering
@@ -111,14 +116,10 @@ so on. This effect is known as avalanche multiplication.
 
 %Joachim Start
 \subsection{MOS Transistor Structure}
-
-
-    \subsubsection{MIS}  Metal-Insulator-Semiconductor, consists of a conductor and a semiconductor, separated by thin insulation layer.
-    \subsubsection{MOS}  Metal-Oxide-Silicon, a version of MIS, in which silicon dioxide ($SiO_2$) is used as oxide.
-    \subsubsection{CMOS}  Complementary Metal Oxide Silicon, a MOS process in which both nFET and pFET are fabricated on the same substrate.
-    \subsubsection{MOSFET} Metal-Oxide-Semiconductor Field-Effect Transistor, built using MOS and a p-n junction diode.
-    
-
+\subsubsection{MIS}  Metal-Insulator-Semiconductor, consists of a conductor and a semiconductor, separated by thin insulation layer.
+\subsubsection{MOS}  Metal-Oxide-Silicon, a version of MIS, in which silicon dioxide ($SiO_2$) is used as oxide.
+\subsubsection{CMOS}  Complementary Metal Oxide Silicon, a MOS process in which both nFET and pFET are fabricated on the same substrate.
+\subsubsection{MOSFET} Metal-Oxide-Semiconductor Field-Effect Transistor, built using MOS and a p-n junction diode.
 
 \begin{figure}[htbp]
   \centering
@@ -197,8 +198,6 @@ Depending on the charge of the gate, we either attract or repel majority carrier
 Semiconductor Devices, 2nd Edition. \copyright 1981 by John Wiley $\&$ Sons, Inc.  \cite{book:VLSI}}
   \label{fig:coperation_domains}
 \end{figure}
-
-
 
 \subsubsection{Accumulated Transistor Channel}
 Accumulation happens when a charge on the gate attracts a lot of majority carriers on the surface of the semiconductor underneath it.\\

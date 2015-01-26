@@ -68,16 +68,11 @@ Contact \href{mailto:be.ellenberger@gmail.com}{be.ellenberger@gmail.com} for fur
 
 \mainmatter
 
-
-
 %% Our content
-
 \newpage
 \clearpage
 \pagenumbering{roman}
 \tableofcontents
-
-
 
 \clearpage
 \pagenumbering{arabic}
@@ -85,6 +80,8 @@ Contact \href{mailto:be.ellenberger@gmail.com}{be.ellenberger@gmail.com} for fur
 %%New section means new page
 \newcommand{\sectionbreak}{\clearpage}
 \todo[inline]{Improve layout (currently ugly at some points...)}
+\includepdf[pages={1-4},addtotoc={
+1,section,1,Exam preparation study sheet,sec:study-sheet}]{docs/study-sheet.pdf}
 \subfile{01-introduction}
 \subfile{02-MOSFETS}
 \subfile{03-subthreshold}
@@ -104,13 +101,12 @@ Contact \href{mailto:be.ellenberger@gmail.com}{be.ellenberger@gmail.com} for fur
 \subfile{17-photodiodes}
 \subfile{18-silicon-neurons}
 \subfile{19-important-values}
+\includepdf[pages={1-15},addtotoc={
+1,section,1,Device physics handout,sec:dev-physics},landscape=true]{docs/device-physics-handouts.pdf}
 \subfile{20-exam-questions}
 \subfile{21-lab-questions}
 \subfile{22-glossary}
 \subfile{23-TODO}
 \subfile{24-bibliography}
 
-
-
 \end{document}
-
