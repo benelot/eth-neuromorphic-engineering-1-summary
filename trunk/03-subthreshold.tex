@@ -1,5 +1,10 @@
 \documentclass[main]{subfiles}
 \begin{document}
+
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+% summarizes lecture 2
+% author: David Bontrager
+
 %David:
 \section{Subthreshold behavior}
 Depending on how we want a transistor to behave, we will want to keep it in subthreshold. A few of the biggest reasons to do so are low power consumption (nano- or microamps), less dominant Early voltage effects, and the usefulness of logarithmic behavior (can cover many orders of magnitude of current for less than one order of magnitude of voltage). Most circuits in this class involve subthreshold transistors, so these are extremely important concepts to understand. In this chapter I will discuss only nFET transistors. To do the equations for pFET devices, you simply multiply all voltages by $-1$\footnote{We did not previously mention this, but pFET bulks are tied to $V_{dd}$, not ground, so all voltages are relative to that (that is, the relevant $V_{g}$ for a pFET would be calculated as $V_{dd} - V_{g}$). The same goes for drain and source voltages. Generally, what the bulk is tied to is hard-wired into the device, though sometimes we make a device where there is a fourth lead controlling this.}.
