@@ -1,0 +1,116 @@
+%% (Master) Thesis template
+% Template version used: v1.4
+%
+% Largely adapted from Adrian Nievergelt's template for the ADPS
+% (lecture notes) project.
+
+
+%% We use the memoir class because it offers a many easy to use features.
+\documentclass[11pt,article,oneside,a4paper,titlepage]{memoir}
+
+%% Packages
+%% ========
+
+%% Some common packages
+\input{commonpackages}
+
+%% Some more packages that you may want to use.  Have a look at the
+%% file, and consult the package docs for each.
+\input{extrapackages}
+
+%% Our layout configuration.
+\input{layoutsetup}
+
+%% Theorem environments.  You will have to adapt this for a German
+%% thesis.
+\input{theoremsetup}
+
+%% Helpful macros.
+\input{macrosetup}
+
+%% Layout settings etc.
+\input{settings}
+
+%% Document information
+%% ====================
+
+
+\title{Neuromorphic Engineering 1 (NE1), Fall Semester 2014}
+\author{
+David Bontrager\\
+Joachim Ott\\
+Dora Sumis\l awska\\
+Doris Ling\\
+Roland Schlatter\\
+Benjamin Ellenberger\\
+\vspace{2em}
+Subversion (svn) repository page:\\ \url{https://neuromorphic-engineering-1-summary.googlecode.com/}\\
+Contact \href{mailto:be.ellenberger@gmail.com}{be.ellenberger@gmail.com} for further information.}
+\thesistype{Summary of the lectures 2012, 2013 \(\&\) 2014}
+\advisors{Professor:\\ Prof.\ Dr.\ Tobi Delbruck 
+	                    }
+\department{Institute of Neuroinformatics}
+\date{\today}
+
+
+\begin{document}
+
+\frontmatter
+
+%% Title page is auto-generated from document information above.
+%% DO NOT CHANGE.
+\begin{titlingpage}
+  \calccentering{\unitlength}
+  \begin{adjustwidth*}{\unitlength-24pt}{-\unitlength-24pt}
+    \maketitle
+  \end{adjustwidth*}
+\end{titlingpage}
+
+\mainmatter
+
+
+
+%% Our content
+
+\newpage
+\clearpage
+\pagenumbering{roman}
+\tableofcontents
+
+
+
+\clearpage
+\pagenumbering{arabic}
+
+%%New section means new page
+\newcommand{\sectionbreak}{\clearpage}
+\todo[inline]{Improve layout (currently ugly at some points...)}
+\subfile{01-introduction}
+\subfile{02-MOSFETS}
+\subfile{03-subthreshold}
+\subfile{04-superthreshold}
+\subfile{05-log-IV-converter}
+\subfile{06-current-source}
+\subfile{07-current-mirror}
+\subfile{08-source-follower}
+\subfile{09-differential-pair}
+\subfile{10-current-conveyor}
+\subfile{11-current-correlator}
+\subfile{12-bump-antibump-circuit}
+\subfile{13-transconductance-amp}
+\subfile{14-wide-range-transconductance-amp}
+\subfile{15-current-divider}
+\subfile{16-WTA}
+\subfile{17-photodiodes}
+\subfile{18-silicon-neurons}
+\subfile{19-important-values}
+\subfile{20-exam-questions}
+\subfile{21-lab-questions}
+\subfile{22-glossary}
+\subfile{23-TODO}
+\subfile{24-bibliography}
+
+
+
+\end{document}
+
