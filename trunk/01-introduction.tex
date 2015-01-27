@@ -14,7 +14,7 @@ Semiconductors and other materials are arranged in regular structures, so called
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{pics/crystal_structure.png}
+\includegraphics[scale=0.3]{figs/crystal_structure.png}
 \caption{Crystal structure of important semiconductors. a) Possibilities of arrangement. b) Arrangement of silicon (Si) and Gallium arsenide (GaAs). Pure silicon crystallizes in a diamond crystal, Gallium arsenide crystallizes in a so called Zincblende structure \cite{book:VLSI}.}
 \end{figure}
 
@@ -24,16 +24,16 @@ The conductivity of a solid is dependent on the amount of mobile electrons in th
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{pics/energybands.png}
-\caption{The schematic energy bands of an insulator, a semiconductor and a conductor. The hatched areas symbolize the states that are occupied by electrons at zero temperature. At non-zero temperature, some electrons occupy higher energy states leaving ''holes'' in the unoccupied lower-energy states. For insulators, the energy bands are either completely filled or empty, as all electrons are bound. A semiconductor has almost full or almost empty bands and the current can only flow under certain conditions. A conductor has partly filled bands within which electrons can move. }
+\includegraphics[scale=0.5]{figs/energybands.png}
+\caption{The schematic energy bands of an insulator, a semiconductor and a conductor. The hatched areas symbolize the states that are occupied by electrons at zero temperature. At non-zero temperature, some electrons occupy higher energy states leaving ''holes'' in the unoccupied lower-energy states. For insulators, the energy bands are either completely filled or empty, as all electrons are bound. A semiconductor has almost full or almost empty bands and the current can only flow under certain conditions. A conductor has partly filled bands within which electrons can move \cite{book:VLSI}.}
 \end{figure}
 
-Valence bands in semiconductors are almost filled, conductance bands almost empty. A concept simplifying the view on semiconductors is that unoccupied states in a valence band are denoted a holes, being positively charged particles.
+Valence bands in semiconductors are almost filled, conductance bands almost empty. A concept simplifying the view on semiconductors is that unoccupied states in a valence band are denoted as holes, being positively charged particles.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{pics/bandgap.png}
-\caption{Valence and conduction band of a semiconductor. The energy is plotted as a function of position in one dimension. The energy of the band gap \(E_g\) denotes the difference between the lowest conduction band energy and the highest valence band energy. The band edges tell us the minimum amount of energy an electron has to acquire or lose to bridge the bandgap.}
+\includegraphics[scale=0.5]{figs/bandgap.png}
+\caption{Valence and conduction band of a semiconductor. The energy is plotted as a function of position in one dimension. The energy of the band gap \(E_g\) denotes the difference between the lowest conduction band energy and the highest valence band energy. The band edges tell us the minimum amount of energy an electron has to acquire or lose to bridge the bandgap \cite{book:VLSI}.}
 \end{figure}
 
 \subsection{Carrier concentrations at Thermal equilibrium}
@@ -55,8 +55,8 @@ The conductivity of a semiconductor is increased significantly by impurity dopin
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{pics/impurity_doping.png}
-\caption{Semiconductor with a) donor and b) acceptor impurity doping. The excess charge carrier is only loosely bound to the ion cores (dashed circles).}
+\includegraphics[scale=0.4]{figs/impurity_doping.png}
+\caption{Semiconductor with a) donor and b) acceptor impurity doping. The excess charge carrier is only loosely bound to the ion cores (dashed circles) \cite{book:VLSI}.}
 \end{figure}
 
 The introduction of donors moves the Fermi level from near the center of the bandgap further towards the conduction-band edge, whereas the
@@ -72,25 +72,34 @@ Diffusion also governs the ion flows in biological neurons.\\
 Drift currents are caused by electric fields.
 
 \subsection{p-n Junction Diode}
-The fundamental semiconductor device is the p-n junction diode. It is built from an n-type semiconductor and a p-type semiconductor, which, when brought into physical contact, give rise to a net electron flow from n-type to p-type region and a net hole flow from p-type to n-type region. The diffusing minority carriers recombine with majority carriers in the vicinity of the junction and therefore gets depleted of mobile charge carriers, hence its name \textbf{depletion region or space-charge region}. 
+The fundamental semiconductor device is the p-n junction diode. It is built from an n-type semiconductor and a p-type semiconductor, which, when brought into physical contact, give rise to a net electron flow from n-type to p-type region and a net hole flow from p-type to n-type region. The diffusing minority carriers recombine with majority carriers in the vicinity of the junction and therefore the junction gets depleted of mobile charge carriers, hence its name \textbf{depletion region or space-charge region}. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.4]{pics/depletion_region.png}
-\caption{Characteristics of an abrupt p-n junction in thermal equilibrium with space-charge distribution \(\rho\), electric field distribution \(\mathcal{E}\), potential distribution \(V\). and energy-band diagram \(E\).}
+\includegraphics[scale=0.4]{figs/depletion_region.png}
+\caption{Characteristics of an abrupt p-n junction in thermal equilibrium with space-charge distribution \(\rho\), electric field distribution \(\mathcal{E}\), potential distribution \(V\). and energy-band diagram \(E\)\cite{book:VLSI}.}
 \end{figure}
 
-The depletion region on the n-type side of the junction is depleted of donor electrons and has surplus protons, the p-type side of the junction is depleted of acceptor holes (filled with the donor electrons) and so have surplus electrons. This builds up an electric field pulling the majority carriers back into the other direction. In thermal equilibrium, diffusion and drift currents balance each other out and no net current flow is observed. The offset between the energy bands bordering the depletion region is an electrical potential called \textbf{built-in potential or diffusion potential \(\Phi_{bi}\)}.
+The depletion region on the n-type side of the junction is depleted of donor electrons and has surplus protons, the p-type side of the junction is depleted of acceptor holes (filled with the donor electrons) and so has surplus electrons. This builds up an electric field pulling the majority carriers back into the other direction. In thermal equilibrium, diffusion and drift currents balance each other out and no net current flow is observed. The offset between the energy bands bordering the depletion region is an electrical potential called \textbf{built-in potential or diffusion potential \(\Phi_{bi}\)}.
 
 \subsection{Forward and Reverse Bias}
 
-In a p-n junction, a net current flow through the diode is generated by applying a potential difference to it. A positive voltage difference applied to the p-type region relative to the n-type region is called a \textbf{forward bias} and the corresponding current is called \textbf{forward current}, a positive voltage difference applied to the n-type region relative to the p-type is called a \textbf{reverse bias}, and the corresponding current \textbf{reverse current}. In a steady state, the total current density must be constant throughout the diode. The electron current in the n-type region is transformed into a hole current in the p-type region. The applied voltage \(V\) appears across the depletion region as a change in the built-in voltage and thus modifies the width of the depletion region.\\
+In a p-n junction, a net current flow through the diode is generated by applying a potential difference to it. A positive voltage difference applied to the p-type region relative to the n-type region is called a \textbf{forward bias} and the corresponding current is called \textbf{forward current}, a positive voltage difference applied to the n-type region relative to the p-type is called a \textbf{reverse bias}, and the corresponding current \textbf{reverse current}. In a steady state, the total current density must be constant throughout the diode. The electron current in the n-type region is transformed into a hole current in the p-type region. The applied voltage \(V\) appears across the depletion region as a change in the built-in voltage and thus modifies the width of the depletion region.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{figs/unbiased_transistor.pdf}
+\caption{Unbiased transistor with energy levels of the two terminals and the channel. No net current flow.}
+\includegraphics[scale=1]{figs/larger_vgs_transistor.pdf}
+\caption{We increased $V_gs$ so that the barrier is lowered. Both carriers float freely but the net current is still zero.}
+\includegraphics[scale=1]{figs/larger_vgs_vds_transistor.pdf}
+\caption{We additionally increased $V_ds$ causing electrons to flow from source to drain.}
+\end{figure}
 A \textbf{forward bias} shrinks the step across the junction. The positive potential applied to the p-type material repels the holes, while the negative potential applied to the n-type material repels the electrons. With increasing forward-bias voltage, the depletion zone eventually becomes thin enough that the zone's electric field cannot counteract charge carrier motion across the p–n junction, as a consequence reducing electrical resistance. The electrons that cross the p–n junction into the p-type material (or holes that cross into the n-type material) will diffuse in the near-neutral region. The forward current in the p-n junction when it is forward-biased involves electrons from the n-type material moving across the junction and combining with holes in the p-type material. Electrons can then proceed further onward by jumping from hole to hole, so the holes can be said to be moving to the opposite direction in this process.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{pics/forward_bias.png}
-\includegraphics[scale=0.8]{pics/forward_bias2.png}
+\includegraphics[scale=0.8]{figs/forward_bias.png}
+\includegraphics[scale=0.8]{figs/forward_bias2.png}
 \caption{Forward biasing of an p-n junction.}
 \end{figure}
 
@@ -98,19 +107,18 @@ A \textbf{reverse bias} expands the step across the junction. To reverse-bias th
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{pics/reverse_bias.png}
-\includegraphics[scale=0.6]{pics/reverse_bias2.png}
+\includegraphics[scale=0.8]{figs/reverse_bias.png}
+\includegraphics[scale=0.6]{figs/reverse_bias2.png}
 \caption{Reverse biasing of an p-n junction.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{pics/biasing.png}
-\caption{Biasing of an p-n junction.}
+\includegraphics[scale=0.5]{figs/biasing.png}
+\caption{Biasing of an p-n junction \cite{book:VLSI}.}
 \end{figure}
 
-For large reverse biases, a phenomenon called \textbf{junction breakdown} occurs that expresses itself in a sudden increase of reverse current at a certain reverse voltage. For silicon with typical impurity doping concentrations this effect is due to impact ionization: The generation of electron-hole pairs by collision with an electron or hole that has acquired sufficient kinetic energy in the electric field of the depletion region. A charge carrier may create multiple electron-hole pairs during its transition through the depletion region. The generated carriers can in turn create electron-hole pairs if they acquire sufficient energy, and
-so on. This effect is known as avalanche multiplication.
+For large reverse biases, a phenomenon called \textbf{junction breakdown} occurs that expresses itself in a sudden increase of reverse current at a certain reverse voltage. For silicon with typical impurity doping concentrations this effect is due to impact ionization: The generation of electron-hole pairs by collision with an electron or hole that has acquired sufficient kinetic energy in the electric field of the depletion region. A charge carrier may create multiple electron-hole pairs during its transition through the depletion region. The generated carriers can in turn create electron-hole pairs if they acquire sufficient energy, and so on. This effect is known as avalanche multiplication.
 
 %Ben End
 
@@ -123,8 +131,8 @@ so on. This effect is known as avalanche multiplication.
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[scale=0.8]{pics/MOSFET_Structure.jpg}
-  \caption{Structure of an n-type MOSFET in a pbody. The MOSFET has four terminals; the drain (D), the source (S), the gate (G), and the bulk (B). (a) Pictorial view of the MOSFET. (b) A more realistic picture of a cross-section of a fabricated MOSFET. Note that the gate oxide is much thinner than the field oxide. \cite{book:VLSI}}
+  \includegraphics[scale=0.8]{figs/MOSFET_Structure.jpg}
+  \caption{Structure of an n-type MOSFET in a p-body. The MOSFET has four terminals; the drain (D), the source (S), the gate (G), and the bulk (B). (a) Pictorial view of the MOSFET. (b) A more realistic picture of a cross-section of a fabricated MOSFET. Note that the gate oxide is much thinner than the field oxide. \cite{book:VLSI}}
   \label{fig:MOSFET_Structure}
 \end{figure}\bigskip
 
@@ -149,7 +157,7 @@ n-wells within the substrate as shown in Fig. \ref{fig:MOSFET_Physical_Structure
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[scale=0.8]{pics/MOSFET_Physical_structure.jpg}
+  \includegraphics[scale=0.8]{figs/MOSFET_Physical_structure.jpg}
   \caption{Physical structure of (a) an nFET and (b) a pFET in a common $p^-$ substrate. The pFET rests in a n-well within the substrate. \cite{book:VLSI}}
   \label{fig:MOSFET_Physical_Structure}
 \end{figure}
@@ -165,14 +173,10 @@ V_{sb}=V_s-V_b \geq 0
 V_{db}=V_d-V_b \geq 0
 \end{equation}
 
-The location of drain and source is defined by the carrier flow:\cite{book:VLSI}
-\begin{itemize}
-\item Electrons are supplied to the channel by the source, and removed by the drain.
-\item Holes are supplied to the channel by the source, and removed by the drain.
-\end{itemize}
+The location of drain and source is defined by the carrier flow\cite{book:VLSI}.
+The majority carrier (either electrons or electron holes) is supplied to the channel by the source, and removed by the drain.
 
-The $n^+$ region biased at the higher voltage is called the drain, and the other $n^+$ region is called the source. Because electrons are negatively charged, the direction of positive current flow,
-I, is from drain to source, even though the carriers flow from source to drain. \cite{book:VLSI}
+The $n^+$ region biased at the higher voltage is called the drain, and the other $n^+$ region is called the source. Because electrons are negatively charged, the direction of positive current flow, I, is from drain to source, even though the carriers flow from source to drain. \cite{book:VLSI}
 
 \subsubsection{pFET}
 In pFET , the $p^+$ regions should be biased negative relative to the bulk to reverse-bias the pn junctions.
@@ -193,7 +197,7 @@ Depending on the charge of the gate, we either attract or repel majority carrier
 \textbf{Important: }Relevant here is the type of substrate (p or n) the channel is made of, don't confuse it with nFET or pFET!
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=1]{pics/operation_domains.png}
+  \includegraphics[scale=1]{figs/operation_domains.png}
   \caption{Dependence of the area charge $Q_s$ on the surface potential for p-type silicon with acceptor density $N_A = 4 \times 10^15cm^-3$ at room temperature. Figure adapted from S. M. Sze (1981), Physics of
 Semiconductor Devices, 2nd Edition. \copyright 1981 by John Wiley $\&$ Sons, Inc.  \cite{book:VLSI}}
   \label{fig:coperation_domains}
@@ -205,7 +209,7 @@ For a p-substrate channel (default), as shown in figure \ref{fig:channel_accumul
 In a n-substrate channel, positive charge on the gate leads to accumulation of electrons (majority carriers in n-substrate) on the channel surface.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=1]{pics/channel_accumulation.png}
+  \includegraphics[scale=1]{figs/channel_accumulation.png}
   \caption{Accumulated Transistor Channel \cite{lec2}}
   \label{fig:channel_accumulated}
 \end{figure}
@@ -216,7 +220,7 @@ In an ideal MIS diode, with no bias applied, the work function of the metal and 
 With $V_g=V_{fb}=0$, the majority carrier density is constant and equal to the dopant density.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=1]{pics/channel_flat_band.png}
+  \includegraphics[scale=1]{figs/channel_flat_band.png}
   \caption{Flat-Band Transistor Channel \cite{lec2}}
   \label{fig:channel_flat_band}
 \end{figure}
@@ -228,7 +232,7 @@ For a n-substrate channel, the same happens if we put a subthreshold negative ch
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=1]{pics/channel_depletion.png}
+  \includegraphics[scale=1]{figs/channel_depletion.png}
   \caption{Depleted Transistor Channel \cite{lec2}}
   \label{fig:channel_depletion}
 \end{figure}
@@ -237,7 +241,7 @@ For a n-substrate channel, the same happens if we put a subthreshold negative ch
 For a depleted p-substrate channel, if we now further increse the postive charge on the gate, we will reach a point where we start attracting negative minority carriers on the semiconductor surface. The surface becomes inverted. (p-type $\rightarrow$ n-type and vice versa in n substrate)  $\rightarrow$ Inversion
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=1]{pics/channel_inversion.png}
+  \includegraphics[scale=1]{figs/channel_inversion.png}
   \caption{Inverted Transistor Channel \cite{lec2}}
   \label{fig:channel_inversion}
 \end{figure}

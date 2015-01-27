@@ -1,0 +1,30 @@
+\documentclass[main]{subfiles}
+\begin{document}
+
+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+% summarizes all important variables
+% author: Benjamin Ellenberger
+\section{Important Variables to Remember}
+
+
+\renewcommand{\arraystretch}{1.5}
+\definecolor{lgray}{gray}{0.95}
+\definecolor{gray}{gray}{0.9}
+
+\rowcolors{1}{lgray}{gray}
+\begin{longtable}{p{0.2\linewidth} p{0.55\linewidth} p{0.25\linewidth}}
+\hline \textbf{Important variable} & \textbf{Explanation} & \textbf{Value under typical conditions}\\ \hline\hline
+\endfirsthead
+
+\hline \textbf{Important variable} & \textbf{Explanation} & \textbf{Value under typical conditions}\\ \hline\hline
+\endhead
+
+Subthreshold slope factor $\kappa$ & & nFET: 0.4-0.9 \newline pFET: 1\\
+Threshold Voltage $V_t$ & & nFETs: \unit[0.7]{V}\\
+Early Voltage & & 20-\unit[30]{V}\\
+Dark Current & Dark current is the relatively small electric current that flows through photosensitive devices even when no photons are entering the device. It is referred to as reverse bias leakage current in non-optical devices and is present in all diodes. Physically, dark current is due to the random generation of electrons and holes within the depletion region of the device.& $\approx$\unit[1-10]{pA}\\
+$I_0$ & & nFET: \unit[$1\cdot10^{-14}$]{A} \newline pFET: \unit[$1\cdot10^{-18}$]{A}\\
+\end{longtable}
+
+\todo[inline]{Add more values to "Important Variables to Remember"}
+\end{document}

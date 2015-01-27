@@ -18,7 +18,7 @@ Yeah it's a bad section title. Don't worry about it. We mentioned $\kappa$ above
 where $C_{ox}$ is the capacitance across the insulating oxide and $C_{dep}$ is the capacitance across the depletion layer, as illustrated in Figure~\ref{crossSectionCaps}. $\psi_s$ is a function of a number of terms, but this is what it boils down to and why it is important\footnote{p.44 in the textbook has details on how the partial derivative comes into play, but the lecture slides do a better job of making this point}. Typical values for $\kappa$ are between 0.4 and 0.9, though it clearly must - mathematically - be less than 1 (look at ~\eqref{kappaEqn}) \\ \\
 %-------MOSFET circuit diagram--------
 \begin{figure}[ht]
-\includegraphics[natwidth=560,natheight=350]{pics/nme_mosfets.pdf}
+\includegraphics[natwidth=560,natheight=350]{figs/nme_mosfets.pdf}
 \caption{Circuit diagrams for an nFET (left) and a pFET (right). Terminals are labeled such that, in a standard circuit diagram, $V_{dd}$ is above the components and $ground$ is below them. However, nothing in the device forces it to be this way. They are physically symmetric and can work with current flowing in either direction. \label{mosfetsFig}}
 \end{figure}
 %-------------------------------------
@@ -47,7 +47,7 @@ The constant ``$I_0$'' is just a bunch of other constants smushed together for c
 At some point we will want to calculate $\kappa$. One easy way is, for an nFET, to tie the drain to $V_{dd}$, tie the source to ground through an ammeter (like the Keithley 236 SMU), and sweep the gate voltage from $0V$ to $1.2V$ or a similar range. Plotting the output current on a \texttt{semilogy} plot (log of measured current on y-axis, gate voltage on x-axis) gives a curve where, in the linear regime, the slope is $\kappa/U_T$.
 %------Lab 2, Experiment 1 - Ids vs Vg----------
 \begin{figure}[ht]
-\includegraphics[natwidth=675,natheight=500]{pics/nme_lab2exp1.pdf}
+\includegraphics[natwidth=675,natheight=500]{figs/nme_lab2exp1.pdf}
 \caption{Reasonable-looking results from lab 2 - measuring $\kappa$ and threshold voltage as described in class (slope of red lines is $\kappa/U_T$) \label{lab2exp1}}
 \end{figure}
 %-----------------------------------------------
