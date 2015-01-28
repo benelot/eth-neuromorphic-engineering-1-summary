@@ -1,16 +1,49 @@
 \documentclass[main]{subfiles}
 \begin{document}
 
-\section{Introduction}
+\section{Semiconductor basics}
 %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 % summarizes lecture 1
 % author: Benjamin Ellenberger & Joachim Ott
 
-\subsection{Semiconductors}
-In case you have trouble understanding the concepts of device physics, then please refer to the appended slide set on device physics in chapter \ref{sec:dev-physics}.
+If Resistors are the most basic passive component in electrical or electronic circuits, then we have to consider the Diode as being the most basic "active" component. However, unlike a resistor, a diode does not behave linearly with respect to the applied voltage as it has an exponential I-V relationship and therefore can not be described simply by using Ohm’s law as we do for resistors.
 
-%Ben Start
-Semiconductors and other materials are arranged in regular structures, so called crystals. The outermost electrons of the atoms, the valence electrons, are distributed in a way that defines and holds together the structure of the crystal.
+Diodes are basic unidirectional Semiconductor Devices that will only allow current to flow through them in one direction only, acting more like a one way electrical valve, (Forward Biased Condition). But, before we have a look at how diodes work we first need to understand the semiconductors basic construction and concept. So what is a "semiconductor" material? Firstly let us look at what makes something either a Conductor or an Insulator \cite{diode-basics}.
+
+\subsection{Resistivity}
+The electrical Resistance of an electrical or electronic component or device is generally defined as being the ratio of the voltage difference across it to the current flowing through it, basic Ohm's Law principals. The problem with using resistance as a measurement is that it depends very much on the physical size of the material being measured as well as the material out of which it is made. For example, if we were to increase the length of the material (making it longer) its resistance would also increase proportionally.
+
+Likewise, if we increased its diameter or size (making it fatter) its resistance value would decrease. So we want to be able to define the material in such a way as to indicate its ability to either conduct or oppose the flow of electrical current through it no matter what its size or shape happens to be.
+
+The quantity that is used to indicate this specific resistance is called Resistivity and is given the Greek symbol of $\rho$. Resistivity is measured in Ohm-metres, ( $\Omega$-m ). Resistivity is the inverse to conductivity.
+
+If the resistivity of various materials is compared, they can be classified into three main groups, Conductors, Insulators and Semiconductors as shown below. \cite{diode-basics}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\linewidth]{figs/resistivity.png}
+\end{figure}
+
+\subsection{Conductors}
+From above we now know that Conductors are materials that have very low values of resistivity, usually in the micro-ohms per metre. This low value allows them to easily pass an electrical current due to there being plenty of free electrons floating about within their basic atom structure. When a positive voltage potential is applied to the material these “free electrons” leave their parent atom and travel together through the material forming an electron drift. In other words a current.
+
+Examples of good conductors are generally metals such as Copper, Aluminium, Silver or non metals such as Carbon because these materials have very few electrons in their outer “Valence Shell”, resulting in them being easily knocked out of the atom’s orbit. This allows them to flow freely through the material until they join up with other atoms, producing a “Domino Effect” through the material thereby creating an electrical current. Copper and Aluminium is the main conductor used in electrical cables as shown.
+Generally speaking, most metals are good conductors of electricity, as they have very small resistance values, usually in the region of micro-ohms per metre. While metals such as copper and aluminium are very good conducts of electricity, they still have some resistance to the flow of electrons and consequently do not conduct perfectly.
+
+The energy which is lost in the process of passing an electrical current, appears in the form of heat which is why conductors and especially resistors become hot. Also the resistivity of conductors increases with ambient temperature because metals are also generally good conductors of heat. \cite{diode-basics}.
+
+\subsection{Insulators}
+Insulators on the other hand are the exact opposite of conductors. They are made of materials, generally non-metals, that have very few or no “free electrons” floating about within their basic atom structure because the electrons in the outer valence shell are strongly attracted by the positively charged inner nucleus.
+
+So if a potential voltage is applied to the material, no current will flow as there are no electrons to move and which gives these materials their insulating properties.
+
+Insulators also have very high resistances, millions of ohms per metre, and are generally not affected by normal temperature changes (although at very high temperatures wood becomes charcoal and changes from an insulator to a conductor). Examples of good insulators are marble, fused quartz, p.v.c. plastics, rubber etc.
+
+Insulators play a very important role within electrical and electronic circuits, because without them electrical circuits would short together and not work. For example, insulators made of glass or porcelain are used for insulating and supporting overhead transmission cables while epoxy-glass resin materials are used to make printed circuit boards, PCB’s etc. while PVC is used to insulate electrical cables as shown. \cite{diode-basics}.
+
+\subsection{Semiconductors}
+
+Semiconductors materials such as silicon (Si), germanium (Ge) and gallium arsenide (GaAs), have electrical properties somewhere in the middle, between those of a “conductor” and an “insulator”. They are not good conductors nor good insulators (hence their name “semi”-conductors). They have very few “free electrons” because their atoms are closely grouped together in a crystalline pattern called a “crystal lattice”. \cite{diode-basics}.  The outermost electrons of the atoms, the valence electrons, are distributed in a way that defines and holds together the structure of the crystal.
 
 \begin{figure}[H]
 \centering
@@ -36,6 +69,36 @@ Valence bands in semiconductors are almost filled, conductance bands almost empt
 \caption{Valence and conduction band of a semiconductor. The energy is plotted as a function of position in one dimension. The energy of the band gap \(E_g\) denotes the difference between the lowest conduction band energy and the highest valence band energy. The band edges tell us the minimum amount of energy an electron has to acquire or lose to bridge the bandgap \cite{book:VLSI}.}
 \end{figure}
 
+\subsection{Impurity doping}
+
+The conductivity of a semiconductor is increased significantly by impurity doping. By replacing several atoms of the semiconductor crystal structure by a different element (\textbf{a donor impurity} if it has a valence electron more, \textbf{an acceptor impurity} if it has a valence electron less than the semiconductor atom), we get \textbf{more unbound electrons/holes} as the impurity atom itself is electrically neutral and the electron/hole can move freely.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{figs/impurity_doping.png}
+\caption{Semiconductor with a) donor and b) acceptor impurity doping. The excess charge carrier is only loosely bound to the ion cores (dashed circles) \cite{book:VLSI}.}
+\end{figure}
+
+The introduction of donors moves the Fermi level from near the center of the bandgap further towards the conduction-band edge, whereas the
+introduction of acceptors moves it closer to the valence-band edge. Higher acceptor doped semiconductors are called \textbf{p-type}, higher donor doped semiconductors are called \textbf{n-type}. Too strongly doped semiconductors have a Fermi level within the valence or conductance band and therefore are similar to metals. Common doping elements are phosphorus (P), arsenic (As) as donors and boron (B) as acceptor.\\
+The mobile charge carriers that are dominant in the semiconductor in thermal equilibrium are the majority carriers, the sparser ones are the minority carriers.
+
+\subsubsection{n-type semiconductor}
+In N-type semiconductors there are:
+
+\begin{enumerate}
+\item The Donors are positively charged.
+\item There are a large number of free electrons.
+\item A small number of holes in relation to the number of free electrons.
+\end{enumerate}
+
+\subsubsection{p-type semiconductor}
+\begin{enumerate}
+\item The Acceptors are negatively charged.
+\item There are a large number of holes.
+\item A small number of free electrons in relation to the number of holes.
+\end{enumerate}
+
 \subsection{Carrier concentrations at Thermal equilibrium}
 Thermal energy makes some electrons move from the lower-energy states to the higher-energy states. The occupancy of energy states is described by the \textbf{Fermi-Dirac distribution} (\(E_F\) denotes the \textbf{Fermi level}, the energy at which the occupation probability is 0.5, k= Boltzmann constant, T=absolute Temperature).
 
@@ -48,20 +111,6 @@ Typical impurity doping concentration, \(E_F\) is well separated from the valenc
 F(E) = e^{-\frac{E-E_F}{kT}}
 \end{align*}
 This probability distribution is the reason for the exponential characteristics of diodes and transistors. The fermi level in an undoped semiconductor is usually halfway between the valence and conduction band.
-
-\subsection{Impurity doping}
-
-The conductivity of a semiconductor is increased significantly by impurity doping. By replacing several atoms of the semiconductor crystal structure by a different element (\textbf{a donor impurity} if it has a valence electron more, \textbf{an acceptor impurity} if it has a valence electron less than the semiconductor atom), we get \textbf{more unbound electrons/holes} as the impurity atom itself is electrically neutral and the electron/hole can move freely.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.4]{figs/impurity_doping.png}
-\caption{Semiconductor with a) donor and b) acceptor impurity doping. The excess charge carrier is only loosely bound to the ion cores (dashed circles) \cite{book:VLSI}.}
-\end{figure}
-
-The introduction of donors moves the Fermi level from near the center of the bandgap further towards the conduction-band edge, whereas the
-introduction of acceptors moves it closer to the valence-band edge. Higher acceptor doping semiconductors are called \textbf{n-type}, higher donor doping semiconductors are called \textbf{p-type}. Too strongly doped semiconductors have a Fermi level within the valence or conductance band and therefore are similar to metals. Common doping elements are phosphorus (P), arsenic (As) as donors and boron (B) as acceptor.\\
-The mobile charge carriers that are dominant in the semiconductor in thermal equilibrium are the majority carriers, the sparser ones are the minority carriers.
 
 \subsection{Current densities and flows}
 By historical definition the electron is assigned the negative elementary charge \(-q\) , where we define \(q\) to be positive. However, the direction of the current density is defined as the direction of positive charge flow.\\ For each carrier type the current flow is due to two basic mechanisms, namely diffusion and drift.
@@ -88,7 +137,7 @@ A \textbf{forward bias} shrinks the step across the junction. The positive poten
 \centering
 \includegraphics[scale=0.8]{figs/forward_bias.png}
 \includegraphics[scale=0.8]{figs/forward_bias2.png}
-\caption{Forward biasing of an p-n junction.}
+\caption{Forward biasing of an p-n junction. The white dots (holes) and black dots (electrons) are pushed away and reduce the size of the depletion region.}
 \end{figure}
 
 A \textbf{reverse bias} expands the step across the junction. To reverse-bias the p-n junction, the p side is made more negative, making it "uphill" for electrons moving across the junction. This will cause a transient current to flow as both electrons and holes are pulled away from the junction. When the potential formed by the widened depletion layer equals the applied voltage, the current will cease except for the small thermal current.
