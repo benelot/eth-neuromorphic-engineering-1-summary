@@ -51,7 +51,7 @@ This probability distribution is the reason for the exponential characteristics 
 
 \subsection{Impurity doping}
 
-The conductivity of a semiconductor is increased significantly by impurity doping. By replacing several atoms of the semiconductor crystal structure by a different element (a donor impurity if it has a valence electron more, an acceptor impurity if it has a valence electron less than the semiconductor atom), we get more unbound electrons/holes as the impurity atom itself is electrically neutral and the electron/hole can move freely.
+The conductivity of a semiconductor is increased significantly by impurity doping. By replacing several atoms of the semiconductor crystal structure by a different element (\textbf{a donor impurity} if it has a valence electron more, \textbf{an acceptor impurity} if it has a valence electron less than the semiconductor atom), we get \textbf{more unbound electrons/holes} as the impurity atom itself is electrically neutral and the electron/hole can move freely.
 
 \begin{figure}[H]
 \centering
@@ -63,13 +63,10 @@ The introduction of donors moves the Fermi level from near the center of the ban
 introduction of acceptors moves it closer to the valence-band edge. Higher acceptor doping semiconductors are called \textbf{n-type}, higher donor doping semiconductors are called \textbf{p-type}. Too strongly doped semiconductors have a Fermi level within the valence or conductance band and therefore are similar to metals. Common doping elements are phosphorus (P), arsenic (As) as donors and boron (B) as acceptor.\\
 The mobile charge carriers that are dominant in the semiconductor in thermal equilibrium are the majority carriers, the sparser ones are the minority carriers.
 
-\subsection{Current densities}
-By historical definition the electron is assigned the negative elementary charge \(-q\) , where we define \(q\) to be positive. However, the direction of the current density is
-defined as the direction of positive charge flow. For each carrier type the current flow is due to two basic mechanisms, namely diffusion and drift.\\
-Diffusion is a term borrowed from gas dynamics. It describes the process by which a net particle flow is directed from a region of
-higher particle density to a region of lower particle density along the density gradient. As we shall see, diffusion determines the current flow in diodes and, within the operating range mainly considered here, in transistors.
-Diffusion also governs the ion flows in biological neurons.\\
-Drift currents are caused by electric fields.
+\subsection{Current densities and flows}
+By historical definition the electron is assigned the negative elementary charge \(-q\) , where we define \(q\) to be positive. However, the direction of the current density is defined as the direction of positive charge flow.\\ For each carrier type the current flow is due to two basic mechanisms, namely diffusion and drift.
+\textbf{Diffusion} is a term borrowed from gas dynamics. It describes the process by which a net particle flow is directed from a region of higher particle density to a region of lower particle density along the density gradient. As we shall see, diffusion determines the current flow in diodes and, within the operating range mainly considered here, in transistors. Diffusion also governs the ion flows in biological neurons.\\
+\textbf{Drift} currents are caused by electric fields.
 
 \subsection{p-n Junction Diode}
 The fundamental semiconductor device is the p-n junction diode. It is built from an n-type semiconductor and a p-type semiconductor, which, when brought into physical contact, give rise to a net electron flow from n-type to p-type region and a net hole flow from p-type to n-type region. The diffusing minority carriers recombine with majority carriers in the vicinity of the junction and therefore the junction gets depleted of mobile charge carriers, hence its name \textbf{depletion region or space-charge region}. 
@@ -113,30 +110,42 @@ For large reverse biases, a phenomenon called \textbf{junction breakdown} occurs
 
 %Ben End
 
-%Joachim Start
-\subsection{MOS Transistor Structure}
+\subsection{MIS and MOS structure}
+
 \subsubsection{MIS}  Metal-Insulator-Semiconductor, consists of a conductor and a semiconductor, separated by thin insulation layer.
 \subsubsection{MOS}  Metal-Oxide-Silicon, a version of MIS, in which silicon dioxide ($SiO_2$) is used as oxide.
+
+The traditional metal–oxide–semiconductor (MOS) structure is obtained by growing a layer of silicon dioxide ($SiO_2$) on top of a silicon substrate and depositing a layer of metal or polycrystalline silicon (the latter is commonly used). As the silicon dioxide is a dielectric material, its structure is equivalent to a planar capacitor, with one of the electrodes replaced by a semiconductor.
+
+When a voltage is applied across a MOS structure, it modifies the distribution of charges in the semiconductor. If we consider a p-type semiconductor (with $N_A$ the density of acceptors, p the density of holes; p = $N_A$ in neutral bulk), a positive voltage, $V_{gb}$, from gate to body (see figure \ref{fig:MOS_Structure}) creates a depletion layer by forcing the positively charged holes away from the gate-insulator/semiconductor interface, leaving exposed a carrier-free region of immobile, negatively charged acceptor ions.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\linewidth]{figs/MOS_Capacitor.pdf}
+\caption{Metal–oxide–semiconductor structure on p-type silicon.}
+\label{fig:MOS_Structure}
+\end{figure}
+ If $V_{gb}$ is high enough, a high concentration of negative charge carriers forms in an inversion layer located in a thin layer next to the interface between the semiconductor and the insulator. Unlike the MOSFET, where the inversion layer electrons are supplied rapidly from the source/drain electrodes, in the MOS capacitor they are produced much more slowly by thermal generation through carrier generation and recombination centers in the depletion region. Conventionally, the gate voltage at which the volume density of electrons in the inversion layer is the same as the volume density of holes in the body is called the threshold voltage. When the voltage between transistor gate and source ($V_{gs}$) exceeds the threshold voltage ($V_{th}$), it is known as overdrive voltage.
+
+This structure with p-type body is the basis of the n-type MOSFET, which requires the addition of an n-type source and drain regions \cite{wiki:MOSFET}.
+
+%Joachim Start
+\subsection{MOS Transistor Structure}
+
 \subsubsection{CMOS}  Complementary Metal Oxide Silicon, a MOS process in which both nFET and pFET are fabricated on the same substrate.
 \subsubsection{MOSFET} Metal-Oxide-Semiconductor Field-Effect Transistor, built using MOS and a p-n junction diode.
 
-\begin{figure}[htbp]
+The metal–oxide–semiconductor field-effect transistor (MOSFET, MOS-FET, or MOS FET) is a type of transistor used for amplifying or switching electronic signals.
+In neuromorphic engineering, we use the MOSFET in the subthreshold domain because the current here is exponentially dependent on the control voltages of the MOSFET just as the ionic conductances of a neuron are exponentially dependent on its membrane potential. Furthermore when MOSFETs are operated in the subthreshold domain, they draw small currents so power consumption is reduced.
+
+\begin{figure}[H]
   \centering
+
   \includegraphics[scale=0.8]{figs/MOSFET_Structure.jpg}
   \caption{Structure of an n-type MOSFET in a p-body. The MOSFET has four terminals; the drain (D), the source (S), the gate (G), and the bulk (B). (a) Pictorial view of the MOSFET. (b) A more realistic picture of a cross-section of a fabricated MOSFET. Note that the gate oxide is much thinner than the field oxide. \cite{book:VLSI}}
   \label{fig:MOSFET_Structure}
 \end{figure}\bigskip
 
-\bigskip\subsection{MOS Transistor Terminals}
-We can view the transistor as having four terminals:
-\begin{enumerate}
-\item Gate (G)
-\item Source (S)
-\item Drain (D)
-\item Bulk (B)
-\end{enumerate}
-
-\bigskip\subsection{MOS Transistor Types}
+\subsection{MOS Transistor Types}
 \subsubsection{n-type}
     Because the n+ source and drain regions can supply a lot of electrons to the channel, this device is called an n-channel MOSFET (nFET,n-type MOSFET, NMOS) \cite{book:VLSI}
 \subsubsection{p-type}
@@ -146,58 +155,38 @@ We can view the transistor as having four terminals:
 Most CMOS processes use a p-type starting substrate.  The nFETs rest in the common $p^-$ substrate, and the pFETs rest in
 n-wells within the substrate as shown in Fig. \ref{fig:MOSFET_Physical_Structure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[scale=0.8]{figs/MOSFET_Physical_structure.jpg}
   \caption{Physical structure of (a) an nFET and (b) a pFET in a common $p^-$ substrate. The pFET rests in a n-well within the substrate. \cite{book:VLSI}}
   \label{fig:MOSFET_Physical_Structure}
 \end{figure}
 
-\bigskip\subsection{MOS Transistor Biasing}
-
-The location of drain and source is defined by the carrier flow\cite{book:VLSI}.
-The majority carrier (either electrons or electron holes) is supplied to the channel by the source, and removed by the drain.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=1]{figs/unbiased_transistor.pdf}
-\caption{Unbiased transistor with energy levels of the two terminals and the channel. No net current flow.}
-\includegraphics[scale=1]{figs/larger_vgs_transistor.pdf}
-\caption{We increased $V_{gs}$ so that the barrier is lowered. Both carriers float freely but the net current is still zero.}
-\includegraphics[scale=1]{figs/larger_vgs_vds_transistor.pdf}
-\caption{We additionally increased $V_{ds}$ causing electrons to flow from source to drain.}
-\end{figure}
-
-\subsubsection{nFET}
+\subsection{Transistor biasing}
+For a transistor to work properly, we need certain bias conditions.
+These bias conditions guarantee that there will only be a small reverse leakage current at these junctions and that most of the transistor’s current will flow in the channel.
+\subsubsection{nFET biasing}
 To ensure only a small leakage current between the $n^+$ regions to the p-substrate, the junctions have to be reverse biased.
 To do this, the drain voltage $V_d$ and the source voltage $V_s$ of the nFET should be greater than or equal to the bulk voltage $V_b$:
-\begin{equation}
-V_{sb}=V_s-V_b \geq 0
-\end{equation}
-\begin{equation}
-V_{db}=V_d-V_b \geq 0
-\end{equation}
+\[V_{sb}=V_s-V_b \geq 0\]
+\[V_{db}=V_d-V_b \geq 0\]
 
 
-The $n^+$ region biased at the higher voltage is called the drain, and the other $n^+$ region is called the source. Because electrons are negatively charged, the direction of positive current flow $I$ is from drain to source, even though the carriers flow from source to drain. \cite{book:VLSI}
+The $n^+$ region biased at the higher voltage is called the drain, and the other $n^+$ region is called the source. Because electrons are negatively charged, the direction of positive current flow $I$ is from drain to source, even though the carriers flow from source to drain. The bulk of the nFET is tied to the lowest voltage ( $V_{ss}$ ). \cite{book:VLSI}
 
-\subsubsection{pFET}
+\subsubsection{pFET biasing}
 In pFET , the $p^+$ regions should be biased negative relative to the bulk to reverse-bias the pn junctions.
-\begin{equation}
-V_{sb} \leq 0
-\end{equation}
-\begin{equation}
-V_{db} \leq 0
-\end{equation}
+\[V_{sb} \leq 0\]
+\[V_{db} \leq 0\]
+The n-type bulk (or n-well) of the pFET should be biased higher (usually $V_{dd}$.  In a $p^-$ substrate, where the pFET rests in an n-well, the well is connected to $V_{dd}$, and the substrate to $V_{ss}$.) For a pFET, the $p^+$ region which is biased at the higher voltage is called the source and the other $p^+$ region is called the drain.
+
 
 \subsection{MOS Transistor Channel}
-The region underneath the gate and between the source and drain regions is called the channel. The channel has a width W, and a length L
-. The channel is insulated from the gate above by a layer of silicon dioxide. The gate is made of heavily doped (low resistivity) polycrystalline silicon.
+The region underneath the gate and between the source and drain regions is called the channel. The channel has a width W, and a length L. The channel is insulated from the gate above by a layer of silicon dioxide. The gate is made of heavily doped (low resistivity) polycrystalline silicon.
 \cite{book:VLSI}
 
 \subsection{MIS Operation Domains}
-In a typical MIS structure the insulator layer is sufficiently thick that it can-
-not be crossed by charge carriers under normal operating conditions and sufficiently thin that the charge on the conductor can influence the charge distribution in the semiconductor via the electrostatic potential it induces. A positive
+In a typical MIS structure, the insulator layer is sufficiently thick that it cannot be crossed by charge carriers under normal operating conditions and sufficiently thin that the charge on the conductor can influence the charge distribution in the semiconductor via the electrostatic potential it induces. A positive
 charge on the conductor attracts mobile electrons from the semiconductor to
 the semiconductor-insulator interface and repels mobile holes away from the
 interface. Conversely, a negative charge on the conductor attracts holes and
@@ -264,19 +253,12 @@ For a depleted p-substrate channel, if we now further increase the positive char
 The minimum voltage that has to be applied to the MIS structure to obtain
 strong inversion is called threshold voltage.
 
-\subsubsection{The coupling factor $\kappa$}
-The relationship between the applied potential and the surface potential is given by the coupling factor
-
-\[\pl{\kappa = \frac{\partial \psi_s}{\partial U} = \frac{C_i}{C_i + C_d}}\]
-
-which is the incremental capacitive divider ratio as seen from the conductor
-side. The coupling factor appears as a parameter in the basic equations
-describing the operation of MOSFETs, where it will be called the subthreshold slope factor. In the small-signal analysis of MOSFET circuits is assumed to be constant, but it must be kept in mind that varies quite strongly with applied voltage.
-
-\subsubsection{Parasitic Charges}
-In MOS processing technologies the thin silicon dioxide layer is obtained by thermal oxidation of the silicon surface. A consequence of this fabrication process is the creation of traps and charges that must be taken into account in models of device behavior.
-
 %Ben End
+
+\subsection{Readings}
+\begin{enumerate}
+\item AVLSI p. 28-45
+\end{enumerate}
 
 \todo[inline]{Add more basic theory (e.g. definition and meaning of $U_T$)}
 \end{document}
