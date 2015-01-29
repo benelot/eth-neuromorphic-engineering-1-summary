@@ -3,7 +3,7 @@
 
 %@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 % summarizes lecture 3
-% author: 
+% author: David Bontrager
 
 \section{Above threshold behavior}
 Above threshold we have a different phenomenon. We established that subthreshold current moves around because of diffusion - moving across concentration gradients. Once we get above threshold, the transistor goes into \emph{strong inversion} and the electric field from drain to source takes over and \emph{drift} is the primary motive force. Once you get the basics of chapters 2 and 3, the rest of the course is extrapolating and applying it. So really focus on learning the material in these two chapters - you will be expected to know it well and be able to use that knowledge on the fly during lab sessions.
@@ -12,10 +12,10 @@ Above threshold we have a different phenomenon. We established that subthreshold
 First off, $\kappa$. Once the transistor goes into strong inversion\footnote{This is where the gate voltage is high enough to attract minority carriers so their concentration in the channel is higher than the dopant concentration}, surface potential $\psi_s$ is pretty well coupled with gate potential, so we set $\kappa$ to 1\footnote{A little more technically: any change in $\psi_s$ is due to a change in inversion charge (mobile electron concentration), not depletion charge (fixed ions), and $\kappa$ is limited to describing static charges, being based on capacitances and all}. We will no longer have $\kappa$ in our equations, but another little guy - $\beta$ - gets introduced as a modified version of $I_0$. We are now above threshold, but we still have the ohmic/linear/triode regime and the saturation regime.\\ \\
 So current is now tumbling down the electric field between the source and drain, being pushed along by our old friend the electric field. This means the current will flow according to the rules that govern charges moving in a field, with the slight caveat that it happens inside matter, not in the ubiquitous vacuum we studied in undergrad. So what are the main points of these rules? Well, we have $I_{ds}$ as a product of carrier mobility, charge density, and electric field. When we expand the terms we get
 \begin{equation}
-I_{ds} = \mu C_{ox}\frac{W}{L}(V_{gs} - V_T)V_{ds} = \beta(V_{gs} - V_T)V_{ds}
+I_{ds} = \mu C_{ox}\frac{W}{L}(V_{gs} - V_{th})V_{ds} = \beta(V_{gs} - V_{th})V_{ds}
 \label{abvTriodeEqn}
 \end{equation}
-where $V_T$ is the threshold voltage and $\mu$ is electron mobility (previously hidden inside $I_0$). And look at that! $I_{ds}$ has a linear dependence on both $V_{gs}$ and $V_{ds}$. No wonder they call it the \emph{linear} regime. So as long as you hold one of those two voltages constant and sweep the other, you can easily measure $\beta$ as the slope of the line divided by the voltage that is being held constant (either drain or gate). If you recall, when a transistor is subthreshold, it goes from triode to saturation regime at the same drain voltage ($4U_T$), regardless of gate voltage. Above threshold we don't get that. That saturation $V_{ds}$ now depends on $V_{gs}$ - for higher $V_{gs}$ you get a higher saturation voltage $V_{dsat}$\footnote{$V_{dsat} = V_{gs} - V_T$}.\\ \\
+where $V_{th}$ is the threshold voltage and $\mu$ is electron mobility (previously hidden inside $I_0$). And look at that! $I_{ds}$ has a linear dependence on both $V_{gs}$ and $V_{ds}$. No wonder they call it the \emph{linear} regime. So as long as you hold one of those two voltages constant and sweep the other, you can easily measure $\beta$ as the slope of the line divided by the voltage that is being held constant (either drain or gate). If you recall, when a transistor is subthreshold, it goes from triode to saturation regime at the same drain voltage ($4U_T$), regardless of gate voltage. Above threshold we don't get that. That saturation $V_{ds}$ now depends on $V_{gs}$ - for higher $V_{gs}$ you get a higher saturation voltage $V_{dsat}$\footnote{$V_{dsat} = V_{gs} - V_T$}.\\ \\
 Say we put $V_{ds}$ higher than $V_{dsat}$, so we're in the saturation regime of above threshold. The current equation changes to
 \begin{equation}
 I_{ds} = \frac{\beta}{2}(V_{gs} - V_T)^2
