@@ -94,7 +94,7 @@ charge on the conductor attracts mobile electrons from the semiconductor to
 the semiconductor-insulator interface and repels mobile holes away from the
 interface. Conversely, a negative charge on the conductor attracts holes and
 repels electrons.\\
-\textbf{Important: }Relevant here is the type of substrate (p or n) the channel is made of, which is p in nFET and n in pFET!
+\textbf{Important: }Relevant here is the type of substrate (p-type or n-type) the channel is made of, which is p-type in nFET and n-type in pFET!
 \begin{figure}[H]
   \centering
   \includegraphics[scale=1]{figs/operation_domains.png}
@@ -109,7 +109,7 @@ repels electrons.\\
 \end{figure}
 
 \subsubsection{Accumulated Transistor Channel}
-Accumulation happens when a charge on the gate attracts a lot of majority carriers on the surface of the semiconductor underneath it.\\
+Accumulation happens when a charge on the gate attracts a lot of majority carriers on the surface of the semiconductor (the bulk/substrate) underneath it.\\
 For a p-substrate channel (default), as shown in figure \ref{fig:channel_accumulated}, a negative voltage on the gate means mobile electrons on the gate. These electrons (negatively charged) attract positive charges on the semiconductor surface underneath it, leading to accumulation of them. Since positive charges (holes) are the majority carrier in p-substrate, we call this situation accumulation.\\\\
 In a n-substrate channel, positive charge on the gate leads to accumulation of electrons (majority carriers in n-substrate) on the channel surface.
 \begin{figure}[H]
@@ -178,9 +178,9 @@ We know about the sub- and above threshold regions. Moving between these two reg
 We can map the regimes to a MOSFET mode:
 
 
-\begin{longtable}{ |p{4cm}|p{4cm}|p{4cm}| }
+\begin{longtable}{ |p{4.5cm}|p{3.5cm}|p{4.5cm}| }
 \hline
-\textbf{When the MOSFET is in this domain:} & \textbf{We say the MOSFET operates in:} & \textbf{Which can be further divided into (depending on $V_{gs}$:} \\ \hline
+\textbf{When the MOSFET is in this domain: \newline (depending on $V_{gs}$)} & \textbf{We say the MOSFET operates in:} & \textbf{Which can be further divided into regimes: \newline (depending on $V_{ds}$)} \\ \hline
 \endhead
 Accumulation & Cutoff & \\ \hline
 Depletion & Cutoff & \\ \hline
@@ -202,7 +202,7 @@ layer).
 Surface voltage $\psi_s$ deserves another mention. We've built a transistor, plugged it in, and biased the gate relative to the bulk\footnote{Really, we care about all voltages \emph{relative to the bulk}, but bulk is almost always at ground so it's an implicit relation}. Because of the positive gate voltage, the depletion region does not only surround the drain and source, but also extends between them. Having this channel of depletion region means that there is a built-in voltage across it\footnote{Not across it as in a \emph{drain-source} voltage, but across it as in perpendicular to the plane of the insulating oxide}. So here we have two voltages in series – one across the insulating oxide, one across the depletion region. Current isn't flowing across either of these gradients, so what does that mean? It means static, accumulated charges are hanging out on either side of the gradients. In other words: they are capacitances. The relationship between the capacitances is described by $\kappa$, which we call the \textsl{capacitive coupling ratio} from gate to channel. It describes how effectively a change in gate voltage can change the surface voltage.
 The relationship between the applied potential and the surface potential is given by the coupling factor
 
-\[\pl{\kappa = \frac{\partial \psi_s}{\partial U} = \frac{C_i}{C_i + C_d}}\]
+\[\pl{\kappa = \frac{C_{ox}}{C_{ox} + C_{dep}} = \frac{\partial\psi_s}{\partial V_g}}\]
 
 which is the incremental capacitive divider ratio as seen from the conductor
 side.

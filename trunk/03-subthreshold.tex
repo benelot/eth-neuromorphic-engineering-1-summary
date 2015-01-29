@@ -42,19 +42,19 @@ We raise the drain voltage, though only a little. Tens of millivolts. The drain 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{figs/larger_vgs_vds_transistor.pdf}
-\caption{We additionally increased $V_{ds}$ causing electrons to flow from source to drain.}
+\caption{We additionally raised $V_{d}$ causing electrons to flow from source to drain.}
 \end{figure}
-Current flows with even very small drain-source voltages. For a small range of voltages, it stays in the \emph{triode/ohmic/linear} region. The name comes from the fact that current has an approximately \emph{linear} dependence on drain-source voltage \emph{when the transistor is above threshold}\footnote{The ``ohmic'' part of the name is simply projecting Ohm's law on the linear regime, describing the fact that the transistor acts as linear (ohmic) resistor in that range. That is, current increases linearly with voltage, just like $U=IR$ says.}. In fact it is also approximately linear while subthreshold for $V_{ds}$ below $U_T$\footnote{about \unit[25]{mV}, remember?}, but then the exponential starts kicking in. To be clear, it only looks linear instead of exponential here \emph{because the exponential itself behaves linearly} over a small range. It's a math thing. Once you get above $\unit[4]{U_T}$ (about \unit[100]{mV}), you enter the saturation region, where current is nearly constant across any higher drain-source voltage for a given gate voltage. This means that operating in subthreshold saturation region is an easy way to get a constant current source if you can set your gate and source voltages and you are unsure about what your drain voltage will be (as long as it stays above $\unit[4]{U_T}$, the drain voltage can move around without affecting the output current).\\ \\
+Current flows with even very small drain-source voltages. For a small range of voltages, it stays in the \emph{triode/ohmic/linear} region. The name comes from the fact that current has an approximately \emph{linear} dependence on drain-source voltage \emph{when the transistor is above threshold}\footnote{The ``ohmic'' part of the name is simply projecting Ohm's law on the linear regime, describing the fact that the transistor acts as linear (ohmic) resistor in that range. That is, current increases linearly with voltage, just like $U=IR$ says.}. In fact it is also approximately linear while subthreshold for $V_{ds}$ below $\unit[4]{U_T}$\footnote{about $4 \cdot \unit[25]{mV}$, remember?}, but then the exponential starts kicking in. To be clear, it only looks linear instead of exponential here \emph{because the exponential itself behaves linearly} over a small range. It's a math thing. Once you get above $\unit[4]{U_T}$ (about \unit[100]{mV}), you enter the saturation region, where current is nearly constant across any higher drain-source voltage for a given gate voltage. This means that operating in subthreshold saturation region is an easy way to get a constant current source if you can set your gate and source voltages and you are unsure about what your drain voltage will be (as long as it stays above $\unit[4]{U_T}$, the drain voltage can move around without affecting the output current).\\ \\
 We could go through all the derivations for getting the drain-source current equations, but we'll leave that to the textbook. You start with current as a function of electron diffusion current density, channel width, and channel depth\footnote{Equation 3.2.5, p. 55}. The diffusion current density is a function of electron mobility and the concentration gradient across the channel. So we calculus-up our equations, and end up with a few constants prefixing a couple exponential terms raised to the power of various voltages and our old friend $\kappa$. It looks like this:
 \begin{equation}
-I = I_0 e^{(\kappa V_g - V_s)/U_T} - I_0 e^{(\kappa V_g - V_{d})/U_T}
+I = \underbrace{I_0 e^{(\kappa V_g - V_s)/U_T}}_{\text{forward current}} - \underbrace{I_0 e^{(\kappa V_g - V_{d})/U_T}}_{\text{reverse current}}
 \label{subTriodeEqn}
 \end{equation}
-Now we see why it flattens out once $V_{ds}$ goes above $4U_T$ - the second term becomes negligible and thus the output does not change for higher $V_{ds}$. The form for \eqref{subTriodeEqn} comes from the fact that the total current ($I$) is the difference between the forward current (the first term) and the reverse current (the second term). A different form is
+Now we see why it flattens out once $V_{ds}$ goes above $\unit[4]{U_T}$ - the second term becomes negligible and thus the output does not change for higher $V_{ds}$. The form for \eqref{subTriodeEqn} comes from the fact that the total current ($I$) is the difference between the forward current (the first term) and the reverse current (the second term). A different form is
 \begin{equation}
 I = I_0 e^{(\kappa V_g - V_s)/U_T}(1 - e^{-V_{ds}/U_T})
 \end{equation}
-We've already said it, so we might as well come out with the equation for a transistor in subthreshold \emph{saturation}. Remember, this applies when $V_{ds} > 4U_T$ (in saturation) and $V_{gs} < 0.7V$ (subthreshold).
+We've already said it, so we might as well come out with the equation for a transistor in subthreshold \emph{saturation}. Remember, this applies when $V_{ds} > \unit[4]{U_T}$ (in saturation) and $V_{gs} < V_{th}~( \approx \unit[0.7]{V})$ (subthreshold).
 \begin{equation}
 I = I_0 e^{(\kappa V_g - V_s)/U_T} \label{subSatEqn}
 \end{equation}
@@ -81,13 +81,25 @@ g_{ds} = \frac{\partial I_{ds}}{\partial V_{ds}} = \frac{I}{V_e}
 \label{gDrainEqn}
 \end{equation}
 \\
-As transistor length increases, so does Early voltage. The ideal transistor would have an Early voltage of $V_e = \infty$ (horizontal slope, no x-intercept). More imperfections are discussed in the textbook section 3.5 (p. 75), but these are the most important two. It's good to be aware of the other effects (and you have to discuss them in one or two of the lab writeups), but they make fewer appearances throughout the course. The important thing is to understand how mismatch can affect your circuit and what kind of change in behavior you would expect to see for mismatch showing up in any given transistor.\\ \\
+As transistor length increases, so does Early voltage. The ideal transistor would have an Early voltage of $V_e = \infty$ (horizontal slope, no x-intercept). More imperfections are discussed in the textbook section 3.5 (p. 75), but these are the most important two. It's good to be aware of the other effects \todo{Add other imperfections}(and you have to discuss them in one or two of the lab writeups), but they make fewer appearances throughout the course. The important thing is to understand how mismatch can affect your circuit and what kind of change in behavior you would expect to see for mismatch showing up in any given transistor.\\ \\
 While \emph{conductance} is on our minds, let's spend another minute on it. We do know what it is in a general sense - it's $R^{-1}$, right? The inverse of the resistance? If $V = IR$, then $R = V/I$ and $g = I/V$. This is all just a very general statement from our old friend Ohm's Law with no transistor-specific properties. These relationships are a little more involved in transistors than in normal, linear resistors, so we take a more dynamic view and call the conductance the partial derivative of the drain current in terms of the voltage of whichever terminal we're interested in. We tend not to move the source around too much, so mostly we talk about the drain conductance, as shown in ~\eqref{gDrainEqn}, and the gate conductance, most often called the \emph{transconductance}. We call it the transconductance because the current we are concerned with does not go through the terminal whose voltage we are changing\footnote{Remember, it's the gate, and no current goes in or out of the gate}.
 \begin{equation}
 g_{m} = \frac{\partial I}{\partial V_{g}}
 \label{gTransEqn}
 \end{equation}
 To get conductance expressions, you simply differentiate your relevant current equation, like ~\eqref{subSatEqn}, in terms of the relevant voltage.\\ \\
-That pretty well covers the basics of subthreshold behavior, though probably not everything. I didn't plan this thing out all that well. There's also some stuff about $\kappa$ not actually being constant, but you'll see that in the labs.
+That pretty well covers the basics of subthreshold behavior, though probably not everything. I didn't plan this thing out all that well. There's also some stuff about $\kappa$ not actually being constant, but you'll see that in the labs.\\
+
+Concluding the chapter on subthreshold operation, here are the equations for each regime of subthreshold again. I added two equations for triode regime, one to show the separation of forward and reverse current and one where it is easily visible that the reverse current drops out of the equation as $V_{ds} \approx \unit[4]{U_T}$ leaving us with what we have for the saturation regime.\\
+$I = $
+\begin{longtable}{ |p{4.5cm}|p{10.5cm}| }
+\hline
+\textbf{Regime} & \textbf{Subthreshold} \\ \hline
+\endhead
+Triode & $ \overbrace{I_0 e^{(\kappa V_g - V_s)/U_T}}^{\text{forward current}} - \overbrace{I_0 e^{(\kappa V_g - V_{d})/U_T}}^{\text{reverse current}} = I_0 e^{(\kappa V_g - V_s)/U_T}(1 - e^{-V_{ds}/U_T})$ \\ \hline
+Saturation & $I_0 e^{(\kappa V_g - V_s)/U_T}$ \\ \hline
+Cutoff & 0 \\ \hline
+\end{longtable}
+\todo[inline]{Add conditions for non-constant $\kappa$}
 %-----------------------------------------------
 \end{document}
