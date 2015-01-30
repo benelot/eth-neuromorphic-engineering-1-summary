@@ -173,20 +173,20 @@ FETs are generally symmetrical and the names of the terminals are defined by how
 The operation domain of an nFET is set by the relative values of the four terminals of the transistor.\\
 In general, these operation domains (e.g. accumulation, depletion, weak inversion, moderate inversion, or strong inversion) are equivalent to the ones of the MIS structure.\\
 We know about the sub- and above threshold regions. Moving between these two regions is a function of $V_g$, specifically the voltage between the gate and the source ($V_{gs} = V_g - V_s$). Both the sub- and the above threshold regions are divided into the triode\footnote{Interesting but irrelevant: ``triode'' comes from the original thought behind the transistor as a 3-terminal diode, thus \emph{tri-}ode vs. \emph{di}-ode. The entire transistor history on Wikipedia is a really interesting read.} and saturation regimes. For both sides of the threshold, we move in and out of saturation by changing $V_{ds}$ – the drain-source voltage.\\ \\
-\textsl{This is important: changing \emph{gate-source} voltage from low to high moves us from subthreshold to above threshold for \emph{any} $V_{ds} > 0$. Similarly, changing \emph{drain-source} voltage from low to high moves us from ohmic regime to saturation regime for \emph{any} $V_{gs} > 0$.} \\ \\
+\textsl{This is important: changing \emph{gate-source} voltage from low to high moves us from subthreshold to above threshold for \emph{any} $V_{ds} > 0$. Similarly, changing \emph{drain-source} voltage from low to high moves us from ohmic regime to saturation regime for \emph{any} $V_{gs} > 0$.} \\
 
 We can map the regimes to a MOSFET mode:
 
 
-\begin{longtable}{ |p{4.5cm}|p{3.5cm}|p{4.5cm}| }
+\begin{longtable}{ |p{5cm}|p{3.5cm}|p{4.5cm}| }
 \hline
 \textbf{When the MOSFET is in this domain: \newline (depending on $V_{gs}$)} & \textbf{We say the MOSFET operates in:} & \textbf{Which can be further divided into regimes: \newline (depending on $V_{ds}$)} \\ \hline
 \endhead
-Accumulation & Cutoff & \\ \hline
+Accumulation ($V_{gs} < 0$) & Cutoff & \\ \hline
 Depletion & Cutoff & \\ \hline
 
-Weak Inversion & Subthreshold & Triode Mode \par Saturation Mode\\ \hline
- Strong Inversion & Above Threshold & Triode Mode \par Saturation Mode\\ \hline
+Weak Inversion ($V_{gs} < V_{th}$) & Subthreshold & Triode Mode ($V_{ds} < \unit[4]{U_T}$) \par Saturation Mode ($V_{ds} > \unit[4]{U_T}$)\\ \hline
+ Strong Inversion ($V_{gs} > V_{th}$) & Above Threshold & Triode Mode ($V_{ds} < \unit[4]{U_T}$) \par Saturation Mode ($V_{ds} > \unit[4]{U_T}$)\\ \hline
 \end{longtable}
 
 \subsubsection{Subthreshold Region}
