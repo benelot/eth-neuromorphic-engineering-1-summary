@@ -22,7 +22,7 @@ When a voltage is applied across a MOS structure, it modifies the distribution o
 \caption{Metal–oxide–semiconductor structure on p-type silicon.}
 \label{fig:MOS_Structure}
 \end{figure}
- If $V_{gb}$ is high enough, a high concentration of negative charge carriers forms in an inversion layer located in a thin layer next to the interface between the semiconductor and the insulator. Unlike the MOSFET, where the inversion layer electrons are supplied rapidly from the source/drain electrodes, in the MOS capacitor they are produced much more slowly by thermal generation through carrier generation and recombination centers in the depletion region. Conventionally, the gate voltage at which the volume density of electrons in the inversion layer is the same as the volume density of holes in the body is called the threshold voltage. When the voltage between transistor gate and source ($V_{gs}$) exceeds the threshold voltage ($V_{th}$), it is known as overdrive voltage.
+ If $V_{gb}$ is high enough, a high concentration of negative charge carriers forms in an inversion layer located in a thin layer next to the interface between the semiconductor and the insulator. In the MOS capacitor the carriers are produced slowly by thermal generation through carrier generation and recombination centers in the depletion region. Conventionally, the gate voltage at which the volume density of electrons in the inversion layer is the same as the volume density of holes in the body is called the threshold voltage. When the voltage between transistor gate and source ($V_{gs}$) exceeds the threshold voltage ($V_{th}$), it is known as overdrive voltage.
 
 This structure with p-type body is the basis of the n-type MOSFET, which requires the addition of an n-type source and drain regions \cite{wiki:MOSFET}.
 
@@ -80,7 +80,7 @@ The n-type bulk (or n-well) of the pFET should be biased higher (usually $V_{dd}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\linewidth]{figs/nFET-pFET-operation.pdf}
-\caption{Biased MOSFETs showing the direction of conventional current flow. (a) For proper nFET operation, we should ensure that $V_g \geq V_b, V_s \geq V_b $ and $V_d \geq V_b$. If $V_d \geq V_s$, the channel current $I$ is positive, flowing from drain to source as shown. If $V_d \leq V_s$, then $I$ is negative and flows in the opposite direction. (b) For proper pFET operation, we should ensure that $V_g \leq V_b, V_s \leq V_b $ and $V_d \leq V_b$. If $V_d \leq V_s$, the channel current $I$ is positive, flowing from drain to source as shown. If $V_d \geq V_s$, then $I$ is negative and flows in the opposite direction.}
+\caption{Biased MOSFETs showing the direction of conventional current flow. (a) For proper nFET operation, we should ensure that $V_g \geq V_b, V_s \geq V_b $ and $V_d \geq V_b$. If $V_d \geq V_s$, the channel current $I$ is positive, flowing from drain to source as shown. If $V_d \leq V_s$, then $I$ is negative and flows in the opposite direction. (b) For proper pFET operation, we should ensure that $V_g \leq V_b, V_s \leq V_b $ and $V_d \leq V_b$. If $V_d \leq V_s$, the channel current $I$ is positive, flowing from source to drain as shown. If $V_d \geq V_s$, then $I$ is negative and flows in the opposite direction.}
 \end{figure}
 
 
@@ -106,6 +106,7 @@ repels electrons.\\
 \centering
   \includegraphics[scale=1]{figs/operation_domains2.pdf}
   \caption{Energy-band diagrams of an ideal MIS diode with applied bias for a p-type semiconductor in (a) accumulation, (b) depletion, and (c) inversion \cite{book:VLSI}.}
+    \label{fig:coperation_domains2}
 \end{figure}
 
 \subsubsection{Accumulated Transistor Channel}
@@ -175,17 +176,17 @@ In general, these operation domains (e.g. accumulation, depletion, weak inversio
 We know about the sub- and above threshold regions. Moving between these two regions is a function of $V_g$, specifically the voltage between the gate and the source ($V_{gs} = V_g - V_s$). Both the sub- and the above threshold regions are divided into the triode\footnote{Interesting but irrelevant: ``triode'' comes from the original thought behind the transistor as a 3-terminal diode, thus \emph{tri-}ode vs. \emph{di}-ode. The entire transistor history on Wikipedia is a really interesting read.} and saturation regimes. For both sides of the threshold, we move in and out of saturation by changing $V_{ds}$ – the drain-source voltage.\\ \\
 \textsl{This is important: changing \emph{gate-source} voltage from low to high moves us from subthreshold to above threshold for \emph{any} $V_{ds} > 0$. Similarly, changing \emph{drain-source} voltage from low to high moves us from ohmic regime to saturation regime for \emph{any} $V_{gs} > 0$.} \\
 
-We can map the regimes to a MOSFET mode:
+We can map the regimes to a MOSFET mode (using \cite{book:VLSI} p. 53 and figure \ref{fig:coperation_domains}):
 
 
-\begin{longtable}{ |p{5cm}|p{3.5cm}|p{4.5cm}| }
+\begin{longtable}{ |p{6cm}|p{3.5cm}|p{5cm}| }
 \hline
 \textbf{When the MOSFET is in this domain: \newline (depending on $V_{gs}$)} & \textbf{We say the MOSFET operates in:} & \textbf{Which can be further divided into regimes: \newline (depending on $V_{ds}$)} \\ \hline
 \endhead
-Accumulation ($V_{gs} < 0$) & Cutoff & \\ \hline
-Depletion & Cutoff & \\ \hline
-
-Weak Inversion ($V_{gs} < V_{th}$) & Subthreshold & Triode Mode ($V_{ds} < \unit[4]{U_T}$) \par Saturation Mode ($V_{ds} > \unit[4]{U_T}$)\\ \hline
+Accumulation ($V_{gs} < 0$) & Cutoff & none \\ \hline
+Flatband ($V_{gs} = 0$) & Cutoff & none \\ \hline
+Depletion ($0 < V_{gs} < \frac{1}{2} V_{th} $) & Cutoff & none \\ \hline
+Weak Inversion ($\frac{1}{2} V_{th} < V_{gs} < V_{th}$) & Subthreshold & Triode Mode ($V_{ds} < \unit[4]{U_T}$) \par Saturation Mode ($V_{ds} > \unit[4]{U_T}$)\\ \hline
  Strong Inversion ($V_{gs} > V_{th}$) & Above Threshold & Triode Mode ($V_{ds} < \unit[4]{U_T}$) \par Saturation Mode ($V_{ds} > \unit[4]{U_T}$)\\ \hline
 \end{longtable}
 
@@ -206,6 +207,12 @@ The relationship between the applied potential and the surface potential is give
 
 which is the incremental capacitive divider ratio as seen from the conductor
 side.
+
+\begin{figure}[H]
+\includegraphics[width=0.6\linewidth]{figs/MIS-diode.pdf}
+\caption{MIS diode in inversion with equivalent capacitive-divider circuit  \cite{book:VLSI}.}
+\label{mis-diode}
+\end{figure}
 %david
 
 \end{document}
